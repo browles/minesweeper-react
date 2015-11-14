@@ -1,0 +1,28 @@
+$width: 24px;
+$height: 24px;
+
+.face {
+  width: $width;
+  height: $height;
+  background-image: url(../assets/faces.png);
+}
+
+.face-happy-down {
+  background-position: 0px (0 * $height);
+}
+
+.face-shades {
+  background-position: 0px (-1 * $height);
+}
+
+.face-dead {
+  background-position: 0px (-2 * $height);
+}
+
+.face-uhoh {
+  background-position: 0px (-3 * $height);
+}
+
+.face-happy {
+  background-position: 0px (-4 * $height);
+}

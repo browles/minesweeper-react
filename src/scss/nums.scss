@@ -1,0 +1,56 @@
+$width: 14px;
+$height: 23px;
+
+.num {
+  width: $width;
+  height: $height;
+  background-image: url(../assets/nums.png);
+}
+
+.num-dash {
+  background-position: 0px (0 * $height);
+}
+
+.num-blank {
+  background-position: 0px (-1 * $height);
+}
+
+.num-nine {
+  background-position: 0px (-2 * $height);
+}
+
+.num-eight {
+  background-position: 0px (-3 * $height);
+}
+
+.num-seven {
+  background-position: 0px (-4 * $height);
+}
+
+.num-six {
+  background-position: 0px (-5 * $height);
+}
+
+.num-five {
+  background-position: 0px (-6 * $height);
+}
+
+.num-four {
+  background-position: 0px (-7 * $height);
+}
+
+.num-three {
+  background-position: 0px (-8 * $height);
+}
+
+.num-two {
+  background-position: 0px (-9 * $height);
+}
+
+.num-one {
+  background-position: 0px (-10 * $height);
+}
+
+.num-zero {
+  background-position: 0px (-11 * $height);
+}

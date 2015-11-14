@@ -1,0 +1,74 @@
+$width: 16px;
+$height: 16px;
+
+.tile {
+  cursor: default;
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-image: url(../assets/tiles.png);
+}
+
+.tile-blank {
+  background-position: 0px (0 * $height);
+}
+
+.tile-flag {
+  background-position: 0px (-1 * $height);
+}
+
+.tile-question {
+  background-position: 0px (-2 * $height);
+}
+
+.tile-bomb-red {
+  background-position: 0px (-3 * $height);
+}
+
+.tile-bomb-x {
+  background-position: 0px (-4 * $height);
+}
+
+.tile-bomb {
+  background-position: 0px (-5 * $height);
+}
+
+.tile-question-down {
+  background-position: 0px (-6 * $height);
+}
+
+.tile-eight {
+  background-position: 0px (-7 * $height);
+}
+
+.tile-seven {
+  background-position: 0px (-8 * $height);
+}
+
+.tile-six {
+  background-position: 0px (-9 * $height);
+}
+
+.tile-five {
+  background-position: 0px (-10 * $height);
+}
+
+.tile-four {
+  background-position: 0px (-11 * $height);
+}
+
+.tile-three {
+  background-position: 0px (-12 * $height);
+}
+
+.tile-two {
+  background-position: 0px (-13 * $height);
+}
+
+.tile-one {
+  background-position: 0px (-14 * $height);
+}
+
+.tile-blank-down {
+  background-position: 0px (-15 * $height);
+}
