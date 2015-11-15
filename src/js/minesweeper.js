@@ -9,6 +9,8 @@ const LOSE = -1;
 const PROGRESS = 0;
 const WIN = 1;
 
+// Generate a one dimensional array maintaining bomb locations and
+// neighboring bomb counts for all non-bomb elements
 function newMinefield(rows, cols, num) {
   const len = rows * cols;
   const minefield = repeat(0, len);
@@ -45,16 +47,16 @@ function newMinefield(rows, cols, num) {
   return minefield;
 }
 
+// Generate a new immutable, one dimensional array to maintain current status of the game board
 function newBoard(rows, cols) {
   const board = repeat(BLANK, rows * cols);
-  // We use a one dimensional array to simplify immutable update logic,
-  // else the .withMutations logic below becomes intractable
   return Immutable.fromJS(board);
 }
 
 const minesweeper = {
   // Initialize a new game
   init(rows, cols, num) {
+    num = Math.min(rows * cols, num);
     const patch = {
       rows,
       cols,
@@ -63,7 +65,7 @@ const minesweeper = {
       flags: num,
       bombs: num,
       remaining: rows * cols,
-      status: 0
+      status: PROGRESS
     };
 
     return minesweeper.update({}, patch);
@@ -94,9 +96,7 @@ const minesweeper = {
     else if (minefield[index] === BOMB) return minesweeper.update(state, {status: LOSE});
     else {
       board = board.withMutations(list => {
-        var lim = 0;
         function revealListAt(index) {
-          // if (lim++ > 200) return
           // Bounds check
           if (index < 0 || index >= minefield.length) return;
           // If flagged or revealed, do nothing
@@ -133,7 +133,7 @@ const minesweeper = {
     // Bounds check
     if (index < 0 || index >= minefield.length) return state;
     // If game not currently in progress
-    else if (state.status !== 0) return state;
+    else if (state.status !== PROGRESS) return state;
     // If revealed
     else if (board.get(index) >= 0) return state;
     else {
@@ -150,19 +150,11 @@ const minesweeper = {
       return minesweeper.update(state, {board, flags});
     }
   },
-  verify(state) {
+  // Verify all possible tiles have been revealed
+  validate(state) {
     if (state.remaining === state.bombs) return minesweeper.update(state, {status: WIN});
-    else minesweeper.update(state, {status: LOSE});
+    else return minesweeper.update(state, {status: LOSE});
   }
 }
 
-export {
-  minesweeper,
-  BOMB,
-  BLANK,
-  FLAG,
-  QUESTION,
-  WIN,
-  PROGRESS,
-  LOSE
-};
+export {minesweeper, BOMB, BLANK, FLAG, QUESTION, WIN, PROGRESS, LOSE};

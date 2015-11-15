@@ -2,6 +2,7 @@ $width: 24px;
 $height: 24px;
 
 .face {
+  display: inline-block;
   width: $width;
   height: $height;
   background-image: url(../assets/faces.png);

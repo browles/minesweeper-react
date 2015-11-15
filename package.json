@@ -1,11 +1,11 @@
 {
-  "name": "enlitic-front-end",
+  "name": "minesweeper-react",
   "version": "0.0.0",
   "description": "Minesweeper recreated in React",
   "main": "./src/app.js",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server",
-    "build": "webpack"
+    "build": "NODE_ENV=production webpack"
   },
   "babel": {
     "presets": [
@@ -23,9 +23,7 @@
     "babel-runtime": "^6.1.18",
     "immutable": "^3.7.5",
     "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "react-redux": "^4.0.0",
-    "redux": "^3.0.4"
+    "react-dom": "^0.14.2"
   },
   "devDependencies": {
     "babel-core": "^6.1.19",

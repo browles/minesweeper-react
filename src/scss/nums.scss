@@ -2,6 +2,7 @@ $width: 14px;
 $height: 23px;
 
 .num {
+  display: inline-block;
   width: $width;
   height: $height;
   background-image: url(../assets/nums.png);

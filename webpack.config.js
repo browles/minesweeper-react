@@ -4,7 +4,7 @@ var plugins = [];
 if (process.env['NODE_ENV'] === 'development') {
   plugins.push(new webpack.HotModuleReplacementPlugin());
 }
-else {
+else if (process.env['NODE_ENV'] === 'production') {
   plugins.push(new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false

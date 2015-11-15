@@ -1,8 +1,10 @@
 import React from 'react';
-import {BLANK, PROGRESS} from './minesweeper.js';
+import MouseDownMoveMixin from '../mixins/MouseDownMoveMixin.js'
+import {BLANK, PROGRESS} from '../minesweeper.js';
 
+// Maps props.cell to the correct spritesheet offset
 const classMap = {
-  'bomb-x': 'time-bomb-x',
+  'bomb-x': 'tile-bomb-x',
   'bomb-red': 'tile-bomb-red',
   'bomb': 'tile-bomb',
   '-3': 'tile-question',
@@ -20,22 +22,12 @@ const classMap = {
 };
 
 const Tile = React.createClass({
-  getInitialState() {
-    return {
-      mouse: false
-    };
-  },
-  handleMouseDown(ev) {
-    if (this.props.status !== PROGRESS) return;
-    this.setState({mouse: true});
-  },
-  handleMouseMove(ev) {
-    if (this.props.status !== PROGRESS) return;
-    if (ev.buttons === 1) this.setState({mouse: true});
-  },
-  handleMouseLeave(ev) {
-    if (this.props.status !== PROGRESS) return;
-    if (this.state.mouse) this.setState({mouse: false});
+  mixins: [MouseDownMoveMixin],
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.mouse !== nextState.mouse) {
+      this.props.handleMouseDownMove(nextState.mouse);
+    }
+    return true;
   },
   render() {
     let className = 'tile ' + classMap[this.props.cell];
@@ -46,8 +38,10 @@ const Tile = React.createClass({
         {...this.props}
         className={className}
         onMouseDown={this.handleMouseDown}
+        onMouseUp={this.handleMouseUp}
         onMouseMove={this.handleMouseMove}
         onMouseLeave={this.handleMouseLeave}
+        onContextMenu={this.props.handleContextMenu}
       />
     );
   }

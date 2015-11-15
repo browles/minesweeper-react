@@ -1,3 +1,115 @@
 @import './faces.scss';
 @import './nums.scss';
 @import './tiles.scss';
+
+body, div , ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  width: 140px;
+  font-size: 12px;
+}
+
+input {
+  width: 22px;
+}
+
+.container {
+  cursor: default;
+  position: absolute;
+  background: #ddd;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+}
+
+.toggle-menu {
+  padding: 2px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.toggle-menu:hover {
+  text-decoration: none;
+}
+
+.menu-list {
+  margin-top: 1px;
+  width: 136px;
+  z-index: 2;
+  cursor: pointer;
+  position: absolute;
+}
+
+.menu-item {
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding: 3px;
+  list-style: none;
+  color: black;
+  background: #eee;
+}
+
+.menu-item:hover {
+  border-bottom: 1px solid black;
+  color: white;
+  background: #55f;
+}
+
+.game-config {
+  position: absolute;
+  padding: 1px;
+  left: 32px;
+}
+.ticker {
+  width: 42px;
+  height: 23px;
+  padding: 4px;
+}
+
+.thin {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #888;
+}
+
+.outset {
+  border-style: outset;
+  border-width: 2px;
+}
+
+.inset {
+  border-style: inset;
+  border-width: 2px;
+}
+
+.align-left {
+  position: absolute;
+  left: 0%;
+  transform: translateX(0%);
+}
+
+.align-right {
+  position: absolute;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.align-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.align-center-bottom {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -100%);
+}
